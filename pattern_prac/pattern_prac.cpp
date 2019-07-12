@@ -3,6 +3,11 @@
 
 #include "stdafx.h"
 #include "pattern_prac.h"
+#ifdef UNICODE
+#pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console") 
+#else
+#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console") 
+#endif
 
 #define MAX_LOADSTRING 100
 
@@ -54,9 +59,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     return (int) msg.wParam;
 }
-
-
-
 //
 //  함수: MyRegisterClass()
 //
@@ -125,6 +127,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+	case WM_CREATE:
+	{
+		MoveWindow(hWnd, 50, 50, 100, 100, TRUE);
+		break;
+	}
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -151,6 +158,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         break;
     case WM_DESTROY:
+		((MINMAXINFO*)lParam)->ptMaxTrackSize.x = 50;
+		((MINMAXINFO*)lParam)->ptMinTrackSize.x = 50;
+		((MINMAXINFO*)lParam)->ptMaxTrackSize.y = 50;
+		((MINMAXINFO*)lParam)->ptMinTrackSize.y = 50;
         PostQuitMessage(0);
         break;
     default:
