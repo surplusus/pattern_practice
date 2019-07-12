@@ -147,12 +147,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Concrete.h" />
+    <ClInclude Include="Interface.h" />
+    <ClInclude Include="Mediator.h" />
     <ClInclude Include="pattern_prac.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Concrete.cpp" />
+    <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="main.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Mediator.cpp" />
     <ClCompile Include="pattern_prac.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
