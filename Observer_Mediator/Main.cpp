@@ -4,18 +4,36 @@
 #include "pch.h"
 #include <iostream>
 
+////////<<<< Observer_Pattern >>>>////////
+//int main()
+//{
+//	using namespace std;
+//
+//	ClockTimer* timer = new ClockTimer;
+//
+//	DigitalClock digital(timer);
+//	AnalogClock analogue(timer);
+//
+//	timer->SetTime(11, 31, 45);
+//}
+
+////////<<<< Mediator_Pattern >>>>////////
 int main()
 {
 	using namespace std;
+	FileSelectionDialog fileDialog;
+	int i;
 
-	ClockTimer* timer = new ClockTimer;
+	cout << "Exit[0], Filter[1], Dir[2], File[3], Selection[4]: ";
+	cin >> i;
 
-	DigitalClock digital(timer);
-	AnalogClock analogue(timer);
-
-	timer->SetTime(11, 31, 45);
+	while (i)
+	{
+		fileDialog.handleEvent(i - 1);
+		cout << "Exit[0], Filter[1], Dir[2], File[3], Selection[4]: ";
+		cin >> i;
+	}
 }
-
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴
 

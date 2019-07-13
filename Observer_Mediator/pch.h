@@ -10,5 +10,6 @@
 #define PCH_H
 
 #include "Observer_Pattern.h"
+#include "Mediator_Pattern.h"
 
 #endif //PCH_H
