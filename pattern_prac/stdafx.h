@@ -22,5 +22,4 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "Interface.h"
-#include "Concrete.h"
+#include "Observer_Pattern.h"
