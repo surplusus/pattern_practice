@@ -5,33 +5,47 @@
 #include <iostream>
 
 ////////<<<< Observer_Pattern >>>>////////
+
 //int main()
 //{
 //	using namespace std;
 //
-//	ClockTimer* timer = new ClockTimer;
+//	SoundEffect* sound = new SoundEffect;
 //
-//	DigitalClock digital(timer);
-//	AnalogClock analogue(timer);
+//	Monster monster(sound);
 //
-//	timer->SetTime(11, 31, 45);
+//	sound->PlaySound();
 //}
+
+
 
 ////////<<<< Mediator_Pattern >>>>////////
 int main()
 {
 	using namespace std;
-	FileSelectionDialog fileDialog;
-	int i;
+	ApplyKey applykey;
+	char k;
 
-	cout << "Exit[0], Filter[1], Dir[2], File[3], Selection[4]: ";
-	cin >> i;
-
-	while (i)
+	cout << "키 : A(왼쪽) / D(오른쪽) / J(점프) / K(죽음) / 0(종료)";
+	while (true)
 	{
-		fileDialog.handleEvent(i - 1);
-		cout << "Exit[0], Filter[1], Dir[2], File[3], Selection[4]: ";
-		cin >> i;
+		cin >> k;
+		if (k == 'a' || k == 'A') {
+			applykey.HandleEvent(ApplyKey::LEFT);
+		}
+		else if (k == 'd' || k == 'D') {
+			applykey.HandleEvent(ApplyKey::LEFT);
+		}
+		else if (k == 'j' || k == 'J') {
+			applykey.HandleEvent(ApplyKey::LEFT);
+		} 
+		else if (k == 'k' || k == 'K') {
+			applykey.HandleEvent(ApplyKey::LEFT);
+		}
+		if (k == '0') break;
+
+		cout << "키 : A(왼쪽) / D(오른쪽) / J(점프) / K(죽음) / 0(종료)";
+		cin >> k;
 	}
 }
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
